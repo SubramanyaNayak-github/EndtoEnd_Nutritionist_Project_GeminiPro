@@ -7,9 +7,7 @@ from PIL import Image
 
 load_dotenv()
 
-genai.configure(api_key= os.getenv('GOOGLE_API_KEY'))
-
-
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 def gemini_response(input_prompt,image):
     model= genai.GenerativeModel('gemini-pro-vision')
 
@@ -64,6 +62,6 @@ about their food choices and maintain a balanced diet.
 
 if submit:
     image_data=preprocess_input_image(uploaded_image)
-    response=gemini_response(input_prompt,image_data,input)
+    response=gemini_response(input_prompt,image_data)
     st.subheader("The Response is")
     st.write(response)
